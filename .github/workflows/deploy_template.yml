@@ -30,7 +30,7 @@ jobs:
           ${{ secrets.DOCKER_HUB_USERNAME }}/lab10:ebs_frontend
 
     - name: Generate deployment package
-      run: zip -r deploy.zip ./docker-compose.yml
+      run: zip -r deploy.zip . -x '*.git*'
 
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
