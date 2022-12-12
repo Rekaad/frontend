@@ -27,7 +27,7 @@ jobs:
         context: ./
         push: true
         tags: |
-          spg51/lab:ebs_frontend
+          ${{ secrets.DOCKER_HUB_USERNAME }}/lab10:ebs_frontend
 
     - name: Generate deployment package
       run: zip -r deploy.zip . -x '*.git*'
@@ -40,5 +40,5 @@ jobs:
         application_name: MyApplicationName
         environment_name: MyApplication-Environment
         version_label: 12345
-        region: us-west-2
-        deployment_package: deploy.zip
+        region: us-east-1
+        deployment_package: deploy_template.zip
